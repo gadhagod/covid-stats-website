@@ -1,0 +1,47 @@
+<head>
+    <title>USA Covid Info | {{ metadata['name'] }}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='covid.png') }}">
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <a href="https://github.com/gadhagod/covid-stats-website">
+        <div class="github_icon"></div>
+    </a>
+
+    <h1>Stay informed!</h1>
+    <h2>Your Hub For USA Coronavirus Stats and Info</h2>
+
+    <h2>{{ metadata['name'] }}</h2>
+
+    <h3 class="header">Website</h3>
+    <a href="{{ metadata['covid19Site'] }}"><h3 class="value">{{ metadata['covid19Site'].replace('https://', '') }}</h3></a> 
+
+    <h3 class="header">Twitter</h3>
+    <a href="{{ 'https://twitter.com/' + metadata['twitter'] }}"><h3 class="value">{{ metadata['twitter'] }}</h3></a> 
+
+    {% if stats['positive'] != None %}
+        <h3 class="header">Cases</h3>
+        <h3 class="value">{{ stats['positive'] }}</h3>
+    {% endif %}
+    {% if stats['death'] != None %}
+        <h3 class="header">Deaths</h3>
+        <h3 class="value">{{ stats['death'] }}</h3>
+    {% endif %}
+    {% if stats['recovered'] != None %}
+        <h3 class="header">Recoveries</h3>
+        <h3 class="value">{{ stats['recovered'] }}</h3>
+    {% endif %}
+    {% if stats['hospitalizedCumulative'] != None %}
+        <h3 class="header">Hospitalized</h3>
+        <h3 class="value">{{ stats['hospitalizedCumulative'] }}</h3>
+    {% endif %}
+    {% if stats['negative'] != None %}
+        <h3 class="header">Tested Negative</h3>
+        <h3 class="value">{{ stats['negative'] }}</h3>
+    {% endif %}
+    {% if stats['totalTestResults'] != None %}
+        <h3 class="header">Total Tests</h3>
+        <h3 class="value">{{ stats['totalTestResults'] }}</h3>
+    {% endif %}
+    <center><button onclick="location.href='/';">Return Home</button></center>
+</body>

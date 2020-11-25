@@ -1,0 +1,41 @@
+<head>
+    <title>USA Covid Info</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='covid.png') }}">
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</head>
+<body>
+    <a href="https://github.com/gadhagod/covid-stats-website">
+        <div class="github_icon"></div>
+    </a>
+
+    <h1>Stay informed!</h1>
+    <h2>Your Hub For USA Coronavirus Stats and Info</h2>
+
+    <h3 class="header">Cases</h3>
+    <h3 class="value">{{ us['positive'] }}</h3>
+
+    <h3 class="header">Deaths</h3>
+    <h3 class="value">{{ us['death'] }}</h3>
+
+    <h3 class="header">Recoveries</h3>
+    <h3 class="value">{{ us['recovered'] }}</h3>
+
+    <h3 class="header">Hospitalized</h3>
+    <h3 class="value">{{ us['hospitalizedCumulative'] }}</h3>
+
+    <h3 class="header">Tested Negative</h3>
+    <h3 class="value">{{ us['negative'] }}</h3>
+
+    <h3 class="header">Total Tests</h3>
+    <h3 class="value">{{ us['totalTestResults'] }}</h3>
+
+    <hr>
+
+    <h3 class="value">Search for a state:</h3>
+    <center><form>
+        <input type="text" id="state" placeholder="State abbriviation (example: 'ca')">
+        <button onclick="go_to_state()">GO!</button>
+    </form></center>
+
+</body>

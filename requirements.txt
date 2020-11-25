@@ -1,0 +1,3 @@
+gunicorn==20.0.4
+flask==1.1.2
+covid-tracking-project==0.2
